@@ -52,6 +52,7 @@ builder.Services.AddControllers()
 
 //HTTP CLIENT
 builder.Services.AddHttpClient();
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

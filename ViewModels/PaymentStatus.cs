@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace AngOauth.ViewModels
 {
-    public class TokenResponse
+    public class PaymentStatus
     {
-        public string Token {get; set;}
+        public string api_client_id {get; set;}
+        public string ref_no {get;set;}
     }
 }
