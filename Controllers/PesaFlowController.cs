@@ -17,10 +17,10 @@ namespace AngOauth.Controllers
     public class PesaFlowController : ControllerBase
     {   
         private const string pesaflow_sandbox_url = "https://test.pesaflow.com/PaymentAPI/iframev2.1.php";
-        private const string apiClientID = "122";
+        private const string apiClientID = "";
         private const string pesaFlowPaymentStatus = "https://test.pesaflow.com/api/invoice/payment/status";
-        private const string secret = "tZSznIZE0/jY98c3/FFemua4LeAs2c7v";
-        private const int serviceID = 48766;
+        private const string secret = "";
+        private const int serviceID = 12345;
         private const string callBackURLONSuccess = "";
         private const string notificationURL = "";
         private readonly HttpClient _httpClient;
@@ -34,8 +34,8 @@ namespace AngOauth.Controllers
         {
             try
             {
-                var secret = "3viBpycUQGfhyOa4xesx7R8sBlcMIuho";
-                var key = "XHwoKTcKMzItNJRv";
+                var secret = "";
+                var key = "";
                 string dataString = $"{viewModel.apiClientID}{viewModel.amountExpected}{viewModel.serviceID}{viewModel.clientIDNumber}{viewModel.currency}{viewModel.billRefNumber}{viewModel.billDesc}{viewModel.clientName}{secret}";
 
                 string secureHash = GenerateSecureHash(dataString, key);
@@ -174,7 +174,7 @@ namespace AngOauth.Controllers
         [HttpPost("payment-status")]
         public async Task<IActionResult>QueryPaymentStatus([FromBody] PaymentStatus paymentStatus)
         {   
-            var key = "XHwoKTcKMzItNJRv";
+            var key = "";
             var data_string = $"{paymentStatus.api_client_id}{paymentStatus.ref_no}";
             string secureHash = GenerateSecureHash(data_string, key);
             string url = $"https://test.pesaflow.com/api/invoice/payment/status?api_client_id={paymentStatus.api_client_id}&ref_no={paymentStatus.ref_no}&secure_hash={secureHash}";
